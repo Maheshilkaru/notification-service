@@ -1,19 +1,15 @@
 package org.iit.cc.notification.model;
 
-import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 public class Notification {
+
     private String id;
-
-    @NotBlank(message = "Agent code is required")
-    private String agentCode;
-
-    @NotBlank(message = "Message is required")
+    private String recipient;
     private String message;
-
-    private String type;
     private LocalDateTime sentAt;
-
-    // Getters and setters...
 }
