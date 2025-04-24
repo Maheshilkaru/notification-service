@@ -24,7 +24,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+<<<<<<< HEAD
         <!-- Spring Data MongoDB -->
+=======
+        <!-- Spring Data MongoDB (if used) -->
+>>>>>>> b0869c05be118aa0e533f6093e23bc5f0c205c5a
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -56,4 +60,7 @@
     </build>
 
 </project>
+<<<<<<< HEAD
 #
+=======
+>>>>>>> b0869c05be118aa0e533f6093e23bc5f0c205c5a

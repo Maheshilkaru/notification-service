@@ -1,9 +1,23 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
-    args: ['clean', 'install']
+    args: ['clean', 'package', '-Dmaven.test.skip=true']
+    dir: '.'
+
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/notification-service', '.']
+    args: [
+      'build', '-t',
+      'us-central1-docker.pkg.dev/moon-tracker-456917/notification/notification-service:1.0.0',
+      '.'
+    ]
+
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/notification-service']
+    args: [
+      'push',
+      'us-central1-docker.pkg.dev/moon-tracker-456917/notification/notification-service:1.0.0'
+    ]
+
 images:
-  - 'gcr.io/$PROJECT_ID/notification-service'
+  - 'us-central1-docker.pkg.dev/moon-tracker-456917/notification/notification-service:1.0.0'

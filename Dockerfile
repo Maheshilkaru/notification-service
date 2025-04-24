@@ -1,4 +1,9 @@
-FROM openjdk:11-jre-slim
+FROM openjdk:17
+
 WORKDIR /app
-COPY target/notification-service-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+COPY target/notification-service-0.0.1-SNAPSHOT.jar notification-service.jar
+
+EXPOSE 8081
+
+ENTRYPOINT ["java", "-jar", "notification-service.jar"]
