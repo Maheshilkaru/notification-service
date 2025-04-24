@@ -3,7 +3,7 @@ options:
 
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
-    args: ['clean', 'install', '-DskipTests']
+    args: ['clean', 'install', '-Dmaven.test.skip=true']
     dir: '.'
 
   - name: 'gcr.io/cloud-builders/docker'
