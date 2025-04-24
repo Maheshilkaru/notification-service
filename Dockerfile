@@ -1,5 +1,11 @@
-FROM openjdk:21-jdk-slim
+# Stage 1: Build using Maven
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /app
-COPY target/notification-service.jar notification-service.jar
-EXPOSE 8083
-ENTRYPOINT ["java", "-jar", "notification-service.jar"]
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run with OpenJDK
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
