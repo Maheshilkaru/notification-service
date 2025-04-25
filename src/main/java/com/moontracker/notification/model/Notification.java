@@ -1,6 +1,6 @@
 package com.moontracker.notification.model;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 public class Notification {
     @NotBlank(message = "Recipient is required")
